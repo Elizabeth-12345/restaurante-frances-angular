@@ -1,0 +1,56 @@
+.menu-subtitle{
+    color:#d4af37;
+    letter-spacing:4px;
+    font-size:.9rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+.menu-intro h1{
+    color:white;
+    font-size:4.5rem;
+}
+.menu-intro p{
+    color:#d6d6d6;
+}
+.menu-photo{
+    margin-top:60px;
+    margin-bottom:60px;
+}
+.menu-photo img{
+    width:100%;
+    max-height:550px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+.menu-modal-card p{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px dashed #ccc;
+}
+.favorite-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    margin-left:10px;
+}
+
+.favorite-btn:hover{
+    transform:scale(1.2);
+}
+
+.favoritos{
+    margin-top:20px;
+    color:white;
+}
+
+.favoritos h4{
+    color:#d4af37;
+}
+
+.favoritos p{
+    margin:5px 0;
+}

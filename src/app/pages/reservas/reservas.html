@@ -1,0 +1,180 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-cream fixed-top">
+    <div class="container">
+        <a class="navbar-brand brand" routerLink="/">
+            RESTAURANTE<br>
+            FRANCÉS
+        </a>
+        <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                <li>
+                    <a class="nav-link" routerLink="/">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/menu">
+                        Menú
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/contacto">
+                        Contacto
+                    </a>
+                </li>
+                <li>
+                    <a
+                        class="btn btn-dark rounded-pill px-4"
+                        routerLink="/reservas">
+                        Reservar
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- RESERVA -->
+<main class="form-page bg-cream">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="form-card">
+                    <p class="eyebrow">
+                        UNA MESA EN PARÍS
+                    </p>
+                    <h1 class="display-font">
+                        Haz tu reserva
+                    </h1>
+                    <p class="text-secondary">
+                        Completa el formulario y nos
+                        pondremos en contacto contigo
+                        para confirmar.
+                    </p>
+                    <form
+                        class="row g-3 mt-3"
+                        (ngSubmit)="reservar()">
+                        <!-- NOMBRE -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Nombre
+                            </label>
+                            <input
+                                class="form-control"
+                                [(ngModel)]="nombre"
+                                name="nombre"
+                                required>
+                        </div>
+                        <!-- TELEFONO -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Teléfono
+                            </label>
+                            <input
+                                class="form-control"
+                                type="tel"
+                                [(ngModel)]="telefono"
+                                name="telefono"
+                                required>
+                        </div>
+                        <!-- FECHA -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                Fecha
+                            </label>
+                            <input
+                                class="form-control"
+                                type="date"
+                                [(ngModel)]="fecha"
+                                name="fecha"
+                                [min]="fechaMinima"
+                                required>
+                        </div>
+                        <!-- HORA -->
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Hora
+                            </label>
+                            <input
+                                class="form-control"
+                                type="time"
+                                [(ngModel)]="hora"
+                                name="hora"
+                                required>
+                        </div>
+                        <!-- PERSONAS -->
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Personas
+                            </label>
+                            <select
+                                class="form-select"
+                                [(ngModel)]="personas"
+                                name="personas">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6+</option>
+                            </select>
+                        </div>
+                        <!-- MENSAJE -->
+                        <div class="col-12">
+                            <label class="form-label">
+                                Mensaje
+                            </label>
+                            <textarea
+                                class="form-control"
+                                rows="4"
+                                placeholder="Alergias, ocasión especial, etc."
+                                [(ngModel)]="mensaje"
+                                name="mensaje">
+                            </textarea>
+                        </div>
+                        <!-- BOTON -->
+                        <div class="col-12">
+                            <button
+                                class="btn btn-dark rounded-pill px-5 py-3"
+                                type="submit">
+                                Solicitar reserva
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- MODAL DE CONFIRMACIÓN -->
+<div
+    class="reserva-modal"
+    *ngIf="reservaRealizada">
+    <div class="reserva-card">
+        <button
+            class="close-btn"
+            (click)="cerrarMensaje()">
+            ✕
+        </button>
+        <h2>
+            ✅ Reserva Confirmada
+        </h2>
+        <p>
+            Gracias <strong>{{ nombre }}</strong>
+        </p>
+        <p class="mensaje-confirmacion">
+            Hemos recibido tu solicitud de reserva para el día
+            <strong>{{ fecha }}</strong>
+            a las
+            <strong>{{ hora }}</strong>.
+        </p>
+        <p class="mensaje-confirmacion">
+            Te contactaremos pronto para confirmar tu mesa.
+        </p>
+    </div>
+</div>

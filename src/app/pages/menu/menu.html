@@ -1,0 +1,238 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+    <div class="container">
+        <a class="navbar-brand brand" routerLink="/">
+            RESTAURANTE<br>
+            FRANCÉS
+        </a>
+        <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                <li>
+                    <a class="nav-link" routerLink="/">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link active" routerLink="/menu">
+                        Menú
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/contacto">
+                        Contacto
+                    </a>
+                </li>
+                <li>
+                    <a
+                        class="btn btn-light rounded-pill px-4"
+                        routerLink="/reservas">
+                        Reservar
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="menu-page">
+    <section class="container menu-intro text-center">
+        <div class="menu-line"></div>
+        <p class="menu-subtitle">
+            CARTA GASTRONÓMICA FRANCESA
+        </p>
+        <h1 class="display-font">
+            MENÚ
+        </h1>
+        <p>
+            París es un crisol de culturas,
+            como lo atestigua nuestra cocina.
+            <br>
+            Descubre sabores auténticos y vive una experiencia gastronómica inolvidable.
+        </p>
+        <div class="filter-buttons mt-4">
+            <button
+                class="btn btn-outline-light rounded-pill"
+                (click)="abrirModal('all')">
+                Todo
+            </button>
+            <button
+                class="btn btn-outline-light rounded-pill"
+                (click)="abrirModal('entrada')">
+                Entradas
+            </button>
+            <button
+                class="btn btn-outline-light rounded-pill"
+                (click)="abrirModal('principal')">
+                Principales
+            </button>
+            <button
+                class="btn btn-outline-light rounded-pill"
+                (click)="abrirModal('postre')">
+                Postres
+            </button>
+            <button
+                class="btn btn-outline-light rounded-pill"
+                (click)="abrirModal('bebida')">
+                Bebidas
+            </button>
+        </div>
+    </section>
+<div
+    class="favoritos mt-4"
+    *ngIf="favoritos.length > 0">
+    <h4>⭐ Favoris du Chef</h4>
+    <p *ngFor="let favorito of favoritos">
+        ❤️ {{ favorito }}
+    </p>
+</div>
+    <div class="container">
+        <div class="menu-photo">
+            <img
+                src="imagenes/pizza-menu.avif"
+                alt="Especialidad de la casa">
+        </div>
+    </div>
+</main>
+<!-- MODAL -->
+<div
+    class="menu-modal"
+    *ngIf="mostrarModal">
+    <div class="menu-modal-card">
+        <button
+            class="close-btn"
+            (click)="cerrarModal()">
+            ✕
+        </button>
+        <h2>MENÚ FRANCÉS</h2>
+        <!-- TODO -->
+        <div *ngIf="categoriaModal === 'all'">
+            <h3>
+    Entradas
+    <button
+        class="favorite-btn"
+        (click)="toggleFavorito('Entradas')">
+        ❤️
+    </button>
+</h3>
+    <p>
+        <span>Sopa de cebolla</span>
+            <span>
+                <strong>$190</strong>
+                <button
+                    class="favorite-btn"
+                    (click)="toggleFavorito('Sopa de cebolla')">
+                    ❤️
+                </button>
+        </span>
+    </p>
+            <p>
+                <span>Ensalada con queso de cabra</span>
+                <strong>$220</strong>
+            </p>
+            <p>
+                <span>Salmón a las brasas</span>
+                <strong>$310</strong>
+            </p>
+            <p>
+                <span>Caracoles de Borgoña</span>
+                <strong>$290</strong>
+            </p>
+            <hr>
+            <h3>Principales</h3>
+            <p>
+                <span>Estofado de ternera a la Borgoña</span>
+                <strong>$480</strong>
+            </p>
+            <p>
+                <span>Pollo asado con estragón</span>
+                <strong>$320</strong>
+            </p>
+        <p>
+    <span>Vieiras selladas</span>
+    <span>
+        <strong>$390</strong>
+        <button
+            class="favorite-btn"
+            (click)="toggleFavorito('Vieiras selladas')">
+            ❤️
+        </button>
+    </span>
+</p>
+            <p>
+                <span>Ratatouille</span>
+                <strong>$270</strong>
+            </p>
+            <hr>
+            <h3>Postres</h3>
+            <p>
+                <span>Crème brûlée</span>
+                <strong>$120</strong>
+            </p>
+            <p>
+                <span>Tarta Tatin</span>
+                <strong>$90</strong>
+            </p>
+            <p>
+                <span>Mousse de chocolate negro</span>
+                <strong>$110</strong>
+            </p>
+<p>
+    <span>Profiteroles</span>
+    <span>
+        <strong>$170</strong>
+        <button
+            class="favorite-btn"
+            (click)="toggleFavorito('Profiteroles')">
+            ❤️
+        </button>
+    </span>
+</p>
+            <hr>
+            <h3>Bebidas</h3>
+            <p>
+                <span>Vino del día</span>
+                <strong>$230</strong>
+            </p>
+            <p>
+                <span>Café de prensa francesa</span>
+                <strong>$110</strong>
+            </p>
+            <p>
+                <span>Agua mineral</span>
+                <strong>$70</strong>
+            </p>
+        </div>
+        <!-- ENTRADAS -->
+        <div *ngIf="categoriaModal === 'entrada'">
+            <h3>Entradas</h3>
+            <p><span>Sopa de cebolla</span><strong>$190</strong></p>
+            <p><span>Ensalada con queso de cabra</span><strong>$220</strong></p>
+            <p><span>Salmón a las brasas</span><strong>$310</strong></p>
+            <p><span>Caracoles de Borgoña</span><strong>$290</strong></p>
+        </div>
+        <!-- PRINCIPALES -->
+        <div *ngIf="categoriaModal === 'principal'">
+            <h3>Principales</h3>
+            <p><span>Estofado de ternera a la Borgoña</span><strong>$480</strong></p>
+            <p><span>Pollo asado con estragón</span><strong>$320</strong></p>
+            <p><span>Vieiras selladas</span><strong>$390</strong></p>
+            <p><span>Ratatouille</span><strong>$270</strong></p>
+        </div>
+        <!-- POSTRES -->
+        <div *ngIf="categoriaModal === 'postre'">
+            <h3>Postres</h3>
+            <p><span>Crème brûlée</span><strong>$120</strong></p>
+            <p><span>Tarta Tatin</span><strong>$90</strong></p>
+            <p><span>Mousse de chocolate negro</span><strong>$110</strong></p>
+            <p><span>Profiteroles</span><strong>$170</strong></p>
+        </div>
+            <h3>Bebidas</h3>
+            <p><span>Vino del día</span><strong>$230</strong></p>
+            <p><span>Café de prensa francesa</span><strong>$110</strong></p>
+            <p><span>Agua mineral</span><strong>$70</strong></p>
+        </div>
+    </div>

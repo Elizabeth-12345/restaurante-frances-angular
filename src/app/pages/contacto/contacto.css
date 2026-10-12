@@ -1,0 +1,22 @@
+.contact-block{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+.contact-block:hover{
+    transform:translateY(-5px);
+}
+.contact-photo img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+.contact-page .lead{
+    max-width:700px;
+    margin:auto;
+}
+.contact-block h5{
+    margin-bottom:15px;
+}
