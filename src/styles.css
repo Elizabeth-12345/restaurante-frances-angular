@@ -63,7 +63,7 @@ body {
 .hero {
     min-height: 680px;
     background-image:
-    url("imagenes/imagen-principal.avif");
+    url("/restaurante-frances-angular/imagenes/imagen-principal.avif");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
